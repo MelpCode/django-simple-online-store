@@ -1,0 +1,76 @@
+{%extends 'layout/layout.html'%}
+{%block title%}
+    {%if edit%}
+        Editar producto | melpStore
+    {%else%}
+        Agregar nuevo productos | melpStore
+    {%endif%}
+{%endblock%}
+
+{%block agregar%}
+
+
+<div class="card card-body rounded shadow-lg">
+    <div class="row">
+        <div class="col-md-5 my-auto">
+            <h1 class="text-center">{%if edit%}Editar producto{%else%}Registrar nuevo producto{%endif%}</h1>
+            <div class="card card-body rounded">
+                <form action="{%if edit%}/editproduct/{{producto.id}}/{%else%}/nuevoproducto/{%endif%}" method="POST">{%csrf_token%}
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="name"
+                            value="{%if edit%}{{producto.name}}{%endif%}"
+                            placeholder="Nombre"
+                            class="form-control"
+                            {%if edit%} disabled {%endif%}>
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="section"
+                            value="{%if edit%}{{producto.section}}{%endif%}"
+                            placeholder="Sección"
+                            class="form-control"
+                            {%if edit%} disabled {%endif%}>
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="price"
+                            value="{%if edit%}{{producto.price}}{%endif%}"
+                            placeholder="Precio"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="image_product"
+                            value="{%if edit%}{{producto.image_url}}{%endif%}"
+                            placeholder="URL Image"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="number" 
+                            name="amount"
+                            value="{%if edit%}{{producto.amount}}{%endif%}"
+                            placeholder="Cantidad"
+                            min=1
+                            class="form-control">
+                    </div>
+                    <button 
+                        type="submit"
+                        class="btn btn-primary btn-block">{%if edit%}Actualizar{%else%}Registrar{%endif%}</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-7">
+            {%load static%}
+            <img src="{% static 'img/regproduct.jpg'%}" 
+                alt=""
+                class="img-fluid">
+        </div>
+    </div>
+</div>
+{%endblock%}

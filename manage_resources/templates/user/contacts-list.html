@@ -1,0 +1,24 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Usuarios Registrados | melpStore{%endblock%}
+
+
+{%block usuarios%}
+<h1>Usuarios Registrados</h1>
+
+<div class="row p-4">
+    {% for usuario in usuarios%}
+    <div class="col-md-3">
+        <div class="card card-body shadow-lg rounded border-info">
+            <img src="https://cdn.onlinewebfonts.com/svg/img_299586.png" 
+                alt=""
+                class="rounded-circle my-4" style="width: 30%;margin-left: 35%;">
+            <h2 class="text-center">{{usuario.name}} {{usuario.lastname}}</h2>
+            <p class="text-center my-2">{{usuario.address}}</p>
+            <p class="text-center">{{usuario.email}}</p>
+            <p class="font-weight-bold text-center">Tel: {{usuario.phone}}</p>
+            <a href="#!" class="text-info text-center">Compras Realizadas</a>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

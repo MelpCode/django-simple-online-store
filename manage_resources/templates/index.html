@@ -1,0 +1,43 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Bienvenido a melpStore{%endblock%}
+
+{%block index%}
+    <h1>Productos</h1>
+    <div class="row">
+    {%for producto in productos%}
+        <div class="col-md-3">
+            <div class="card card-body rounded shadow-lg">
+                <img src="{{producto.image_url}}" 
+                    alt=""
+                    class="img-fluid">
+                <p class="text-center">{{producto.name}}</p>
+                <p class="font-weight-bold text-center">Stock: {{producto.amount}}</p>
+                <h2 class="text-center my-4"> S/. {{producto.price}}</h2>
+                {%if usuario.admin%}
+                <div class="row my-4">
+                    <a href="/deleteproduct/{{producto.id}}" class="text-danger text-center col-md-6">Eliminar</a>   
+                    <a href="/editproduct/{{producto.id}}" class="text-info text-center col-md-6" >Editar</a>
+                </div>
+                {%endif%}
+                <form action="/addcarrito/{{producto.id}}/" method="POST">{%csrf_token%}
+                    <div class="form-group">
+                        <input 
+                            type="number" 
+                            name="amount" 
+                            placeholder="Cantidad"
+                            min="1" max="{{product.amount}}"
+                            class="form-control">
+                    </div>
+                    <button 
+                        type="{%if usuario.admin%}button{%else%}submit{%endif%}"
+                        class="btn btn-primary btn-block">
+                        Agregar al Carrito
+                    </button>
+                </form>
+                
+            </div>
+        </div>
+    {%endfor%}
+    </div>
+    
+{%endblock%}

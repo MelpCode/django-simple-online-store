@@ -1,0 +1,46 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Carrito | melpStore{%endblock%}
+{%block carrito%}
+    <h1>Carrito:</h1> 
+    {%if elementos|length > 0%}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card card-body shadow-lg">
+                {%for elemento in elementos%}
+                        <div class="card card-body shadow">
+                            <div class="row">
+                                <div class="col-md-3 mx-auto">
+                                    <img src="{{elemento.image}}" 
+                                        alt=""
+                                        class="image-fluid" style="width: 60%;">
+                                </div>
+                                <div class="col-md-9">
+                                    <h6>{{elemento.name}}</h6>
+                                    <h2> S/.{{elemento.price}}</h2>
+                                    <p>Cantidad: {{elemento.amount}}</p>
+                                    <a href="/deleteprod/{{elemento.idcarrito}}" class="text-danger">Eliminar</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                {%endfor%}
+            </div>
+            <div class="card card-body shadow-lg">
+                <div class="row">
+                    <h1 class="display-4 col-md-6 text-center">Total:</h1>
+                    <h1 class="col-md-6 text-center my-2">S/. {{totalprice}}</h1>
+                </div>
+                <form action="/finalizarpedido/"  method="POST">{%csrf_token%}
+                    <input type="hidden" name="totalprice" value="{{totalprice}}">
+                    <button type="submit" class="btn btn-info offset-8">Terminar compra</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {%else%}
+        <div class="alert alert-dismissible alert-danger shadow-lg">
+            <strong>A&uacute;n no tiene ning&uacute;n producto registrado</strong>
+        </div>
+    {%endif%}
+    
+{%endblock%}

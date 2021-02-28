@@ -1,0 +1,22 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Mi Perfil | melpStore{%endblock%}
+
+
+{%block profile%}
+    <h1>Mi perfil</h1>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card card-body shadow-lg text-center border-info">
+                <img src="https://cdn.onlinewebfonts.com/svg/img_299586.png" 
+                    alt=""
+                    class="rounded-circle my-4" style="width: 30%;margin-left: 35%;">
+                <h2>{{usuario.name}} {{usuario.lastname}}</h2>
+                <p>{{usuario.address}}</p>
+                <p class="font-weight-bold">{{usuario.email}}</p>
+                <p class="font-weight-bold">Telef. {{usuario.phone}}</p>
+                <a href="/editarperfil/" class="text-info">Editar</a>
+                <a href="" class="text-danger my-4">Eliminar Cuenta</a>
+            </div>
+        </div>
+    </div>
+{%endblock%}

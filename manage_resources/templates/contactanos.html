@@ -1,0 +1,43 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Contactanos | melpStore{%endblock%}
+
+{%block contactanos%}
+    <div class="row my-2">
+        <div class="col-md-10 offset-md-1">
+            <div class="card card-body shadow">
+                <div class="row">
+                    <div class="col-md-8">
+                        <img src="https://static.vecteezy.com/system/resources/previews/000/166/530/original/contact-me-illustration-vector.jpg" 
+                            alt=""
+                            class="img-fluid">
+                    </div>
+                    <div class="col-md-4 my-auto">
+                        <h1 class="text-center">Contactanos</h1>
+                        <div class="card card-body">
+                            <form action="" method='POST'>
+                                <div class="form-group">
+                                    <input 
+                                    type="email" 
+                                    name="email"
+                                    placeholder="Correo"
+                                    class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <textarea 
+                                    name="comment" 
+                                    rows="10" 
+                                    placeholder="Comentarios"
+                                    class="form-control"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-primary btn-block">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+{%endblock%}

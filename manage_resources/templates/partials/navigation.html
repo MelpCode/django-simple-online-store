@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/index/">MelpStore Web</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarColor02"
+            aria-controls="navbarColor02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item {%if us%}active{%endif%}">
+                    <a class="nav-link" href="/nosotros/">Nosotros</a>
+                </li>
+                <li class="nav-item {%if contactus%}active{%endif%}">
+                    <a class="nav-link" href="/contactanos/">Contactanos</a>
+                </li>
+            {%if session%}
+                {%if usuario.admin%}
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" 
+                            data-toggle="dropdown" href="#" role="button" 
+                            aria-haspopup="true" 
+                            aria-expanded="false">Configuraci&oacute;n</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/nuevoproducto/">Ingresar productos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/usuarios/">Ver Usuarios</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                {%else%}
+                <li class="nav-item">
+                    <a class="nav-link" href="/carrito/">Carrito</a>
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle" 
+                            data-toggle="dropdown" href="#" role="button" 
+                            aria-haspopup="true" 
+                            aria-expanded="false">Configuraci&oacute;n</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/historial/">Historial de compras</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/perfil/">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/cambiarcontrasena/">Cambiar contrase&ntilde;a</a>
+                        </div>
+                    </li>
+                </li>
+                {%endif%}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Cerrar Sesi&oacute;n</a>
+                </li>
+            {%else%}
+                <li class="nav-item {%if login%}active{%endif%}">
+                    <a class="nav-link" href="/login/">Iniciar Sesi&oacute;n</a>
+                </li>
+                <li class="nav-item {%if register%}active{%endif%}">
+                    <a class="nav-link" href="/register/">Registrarse</a>
+                </li>
+            {%endif%}
+            </ul>
+        </div>
+    </div>
+</nav>

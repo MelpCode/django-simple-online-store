@@ -1,0 +1,81 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Registrarse | melpStore{%endblock%}
+
+{%block register%}
+    <div class="container">
+        <div class="card card-body shadow-lg rounded">
+            <div class="row">
+                <div class="col-md-5 mx-auto my-auto">
+                    {%load static%}
+                    <img 
+                        src="{%static 'img/register.jpg'%}" 
+                        alt=""
+                        class="img-fluid">
+                </div>
+                <div class="col-md-7 my-auto">
+                    <h1 class="text-center">Registrarse</h1>
+                    <div class="card card-body rounded">
+                        <form action="/register/" method="POST">{%csrf_token%}
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <input 
+                                        type="text" 
+                                        name="name"
+                                        placeholder="Nombre"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input 
+                                        type="text" 
+                                        name="lastname"
+                                        placeholder="Apellidos"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <input 
+                                        type="email" 
+                                        name="email"
+                                        placeholder="Correo"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input 
+                                        type="tel" 
+                                        name="phone"
+                                        placeholder="Telefono"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input 
+                                    type="text" 
+                                    name="address"
+                                    placeholder="Dirección"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input 
+                                    type="password" 
+                                    name="password"
+                                    placeholder="Contraseña"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input 
+                                    type="password" 
+                                    name="password_confirmed"
+                                    placeholder="Repita la contraseña"
+                                    class="form-control">
+                            </div>
+                            <button 
+                                type="submit"
+                                class="btn btn-primary btn-block">Registrarse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

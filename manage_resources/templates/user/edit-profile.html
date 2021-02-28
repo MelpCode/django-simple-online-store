@@ -1,0 +1,66 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Editar Perfil | melpStore{%endblock%}
+
+
+{%block editprofile%}
+    <h1>Editar mi Perfil</h1>
+    <div class="row p-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-body rounded shadow-lg border-info">
+                <form action="" method="POST">{%csrf_token%}
+                    <img src="https://cdn.onlinewebfonts.com/svg/img_299586.png" 
+                        alt=""
+                        class="rounded-circle my-4" style="width: 20%;margin-left: 40%;">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input 
+                                type="text" 
+                                name="name"
+                                value="{{usuario.name}}"
+                                class="form-control"
+                                disabled>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input 
+                                type="text" 
+                                name="lastname"
+                                value="{{usuario.lastname}}"
+                                class="form-control"
+                                disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input 
+                                type="text" 
+                                name="email"
+                                value="{{usuario.email}}"
+                                class="form-control"
+                                >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input 
+                                type="text" 
+                                name="phone"
+                                value="{{usuario.phone}}"
+                                class="form-control"
+                                >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="text" 
+                            name="address"
+                            value="{{usuario.address}}"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <a href="/cambiarcontrasena/" class="form-control text-info my-3">Editar contrase&ntilde;a</a>
+                    </div>
+                    <button type="submit"
+                    class="btn btn-primary" style="margin-left: 40%;">Cambiar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}

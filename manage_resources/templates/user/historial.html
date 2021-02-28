@@ -1,0 +1,22 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Historial | melpStore{%endblock%}
+
+{%block historial%}
+
+<h1>Historial de Pedidos</h1>
+<br class="my-4">
+<div class="row">
+    {%for compra in compras%}
+        <div class="col-md-3">
+            <div class="card card-body shadow-lg">
+                <span class="font-weight-bold">Registrado:</span>
+                <p> {{compra.date}} {{compra.hour}}</p>
+                <span class="font-weight-bold">A pagar: </span>
+                <h2> S/. {{compra.totalprice}}</h2>
+                <a href="/historial/compra/{{compra.date}}" class="text-info">Ver detalles </a>
+            </div>
+        </div>
+    {%endfor%}
+</div>
+    
+{%endblock%}

@@ -1,0 +1,43 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Iniciar Sesi&oacute;n | melpStore{%endblock%}
+
+{%block login%}
+    <div class="container">
+        <div class="card card-body shadow-lg rounded">
+            <div class="row">
+                <div class="col-md-8">
+                    {%load static%}
+                    <img src="{% static 'img/login.jpg'%}" 
+                        alt=""
+                        class="img-fluid">
+                </div>
+                <div class="col-md-4 my-auto">
+                    <h1 class="text-center">Iniciar Sesi&oacute;n</h1>
+                    <div class="card card-body rounded">
+                        <form action="/login/" method='POST'>{%csrf_token%}
+                            <div class="form-group">
+                                <input 
+                                    type="email" 
+                                    name="email"
+                                    placeholder="Correo"
+                                    class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input 
+                                    type="password" 
+                                    name="password"
+                                    placeholder="Contraseña"
+                                    class="form-control">
+                            </div>
+                            <button 
+                                type="submit"
+                                class="btn btn-primary btn-block">
+                                Iniciar Sesi&oacute;n
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

@@ -1,0 +1,25 @@
+{%extends 'layout/layout.html'%}
+{%block title%}Pedido Realizado | melpStore{%endblock%}
+
+{%block comprahecha%}
+<h1>Detalles de la compra:</h1>
+<br class="my-4">
+<div class="alert alert-dismissible alert-success">
+    <h2>Monto Total: S/. {{totalprice}}</h2>
+</div>
+
+<div class="row">
+    {%for elemento in elementos%}
+    <div class="col-md-4">
+        <div class="card card-body shadow-lg text-center">
+            <img src="{{elemento.urlimage}}" 
+                alt=""
+                class="image-fluid">
+            <p>{{elemento.name}}</p>
+            <p class="font-weight-bold">Cantidad: {{elemento.cantidad}}</p>
+            <h1>S/.{{elemento.price}}</h1>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}
