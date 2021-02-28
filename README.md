@@ -4,11 +4,11 @@
 
 1. Configuración de la base de datos.
   
-  Crear archivo .py con los parametros de la base de datos.
+    Crear archivo .py con los parametros de la base de datos.
 
 2. Crear base de datos:
   
-  Con el nombre registrado en la configuración
+    Con el nombre registrado en la configuración
 
 3. Migracion de los modelos a las bases de datos:
 
